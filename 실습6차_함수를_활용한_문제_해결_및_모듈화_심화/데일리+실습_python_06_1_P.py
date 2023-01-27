@@ -6,13 +6,14 @@
 # 970103*******
 # 861123******* 
 
-# def de_identify(reg_num):
+def de_identify(reg_num):
     
-#     strict_reg_num = reg_num.strip('-')
+    if reg_num[6] == '-':
+        new_num = reg_num[0:6] + '*' * len(reg_num[7:])
+    else: 
+        new_num = reg_num[0:6] + '*' * len(reg_num[6:])
+        
+    return new_num
 
-#     return strict_reg_num
-
-# print(de_identify('970103-1234567'))
-# print(de_identify('8611232345678'))
-
-print('970103-1234567'.strip('-'))
+print(de_identify('970103-1234567'))
+print(de_identify('8611232345678'))
